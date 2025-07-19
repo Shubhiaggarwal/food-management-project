@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate Food | Food Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="donor.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #df0e0e;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #074583;
+      padding: 20px;
+      color: rgb(43, 201, 212);
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    /* Stylish Heading */
+header h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffcc00, #003366, #ff6699);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: gradientText 5s ease-in-out infinite;
+  text-shadow: 4px 4px 6px rgba(220, 218, 90, 0.4);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Gradient Text Animation */
+@keyframes gradientText {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+
+    nav a {
+      margin: 0 15px;
+      color: rgb(55, 172, 231);
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #cdad1f;
+    }
+
+    nav a.active {
+      color: #070603;
+    }
+
+    /* Donor Section */
+    .donor-bg {
+      background: linear-gradient(45deg, #ffcc00, #003366);
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+      animation: gradientAnimation 5s ease-in-out infinite;
+    }
+
+    .donor-bg h2 {
+      font-size: 3rem;
+      animation: fadeIn 1s ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+
+      50% {
+        background: linear-gradient(45deg, #003366, #ffcc00);
+      }
+
+      100% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+    }
+
+    /* Attractive Image Styles */
+    .donor-img {
+      max-width: 350px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      transform: scale(0.95);
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .donor-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Donor Form Section */
+    .animated-form {
+      position: relative;
+      background-color: #b87676;
+      padding: 40px;
+      margin: 50px auto;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      animation: formAnimation 1s ease-in-out;
+    }
+
+    @keyframes formAnimation {
+      0% {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .animated-form h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .animated-form input,
+    .animated-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .animated-form button {
+      width: 100%;
+      padding: 15px;
+      background-color: #003366;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .animated-form button:hover {
+      background-color: #ffcc00;
+      transform: scale(1.05);
+    }
+
+    /* Hover effects on inputs */
+    .animated-form input:focus,
+    .animated-form textarea:focus {
+      border-color: #ffcc00;
+      outline: none;
+    }
+    /* Add a delay to make the form's input fields animate sequentially */
+.animated-form input:nth-child(1),
+.animated-form textarea:nth-child(2) {
+  animation: fadeInUp 0.5s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+.animated-form input:nth-child(3),
+.animated-form button {
+  animation: fadeInUp 0.5s ease-in-out forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Donate Food</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html" class="active">Donor</a>
+      <a href="request.html">Request</a>
+    </nav>
+  </header>
+
+  <div class="donor-bg">
+    <h2>Your Generosity Can Save Lives</h2>
+    <!-- Image with new styling -->
+    <img src="assets/10.png" alt="Donor" class="donor-img" />
+  </div>
+
+  <section class="animated-form">
+    <form id="donorForm">
+      <h2>Donate Food</h2>
+      <input type="text" name="donorName" placeholder="Your Name" required />
+      <input type="text" name="pickupAddress" placeholder="Pickup Address" required />
+      <textarea name="foodDesc" placeholder="Food Description" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <script src="donor.js"></script>
+
+</body>
+
+</html>
+
