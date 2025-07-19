@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Food | Food Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Modern Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #003366;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+   /* Stylish Heading */
+header h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffcc00, #003366, #ff6699);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: gradientText 5s ease-in-out infinite;
+  text-shadow: 4px 4px 6px rgba(189, 189, 13, 0.4);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Gradient Text Animation */
+@keyframes gradientText {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+
+    nav a {
+      margin: 0 15px;
+      color: rgb(216, 201, 201);
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    nav a.active {
+      color: #ffcc00;
+    }
+
+    /* Request Page Styles */
+    .request-bg {
+      background: linear-gradient(45deg, #ffcc00, #003366);
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      animation: gradientAnimation 5s ease-in-out infinite;
+    }
+
+    .request-bg h2 {
+      font-size: 3rem;
+      animation: fadeIn 1s ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+
+      50% {
+        background: linear-gradient(45deg, #003366, #ffcc00);
+      }
+
+      100% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+    }
+
+    /* Colorful Border & Animated Box for Image */
+    .request-img-box {
+      position: relative;
+      display: inline-block;
+      padding: 15px;
+      border-radius: 20px;
+      background: linear-gradient(45deg, #ffcc00, #003366);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: boxAnimation 1.5s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .request-img-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .request-img {
+      max-width: 350px;
+      margin: 20px auto;
+      border-radius: 15px;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .request-img-box:hover .request-img {
+      transform: scale(1.05);
+    }
+
+    @keyframes boxAnimation {
+      0% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+
+      50% {
+        background: linear-gradient(45deg, #003366, #ffcc00);
+      }
+
+      100% {
+        background: linear-gradient(45deg, #ffcc00, #003366);
+      }
+    }
+
+   /* Center the form container */
+.request-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for vertical centering */
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(0, 51, 102, 0.8)); /* Background gradient */
+  padding: 20px;
+  box-sizing: border-box;
+  animation: gradientAnimation 6s infinite alternate; /* Gradient animation */
+}
+
+/* Form box styling */
+.request-form-container form {
+  width: 100%;
+  max-width: 600px;
+  background-color: #c2bf0c;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: formAnimation 1s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animation for gradient background */
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(0, 51, 102, 0.8));
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.8), rgba(255, 204, 0, 0.8));
+  }
+  100% {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(0, 51, 102, 0.8));
+  }
+}
+
+/* Animation for the form appearance */
+@keyframes formAnimation {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Style inputs, textarea, and button */
+.request-form-container form input,
+.request-form-container form textarea,
+.request-form-container form button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #9e0e0e;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+/* Focused state for inputs and textarea */
+.request-form-container form input:focus,
+.request-form-container form textarea:focus {
+  border-color: #ffcc00;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
+}
+
+/* Button styling */
+.request-form-container form button {
+  background-color: #003366;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.request-form-container form button:hover {
+  background-color: #d8a627;
+  transform: scale(1.05);
+}
+
+/* Hover effect for inputs */
+.request-form-container form input:hover,
+.request-form-container form textarea:hover {
+  box-shadow: 0 0 10px rgba(0, 51, 102, 0.2);
+}
+
+
+
+   
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Request Food</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html">Donor</a>
+      <a href="request.html" class="active">Request</a>
+    </nav>
+  </header>
+
+  <div class="request-bg">
+    <h2>We're Here to Help</h2>
+    <!-- Colorful Image Box -->
+    <div class="request-img-box">
+      <img src="assets/help.jpeg" alt="Help" class="request-img" />
+    </div>
+  </div>
+
+  <div class="request-form-container">
+    <form id="requestForm">
+      <input type="text" name="userName" placeholder="Your Name" required />
+      <input type="text" name="location" placeholder="Location" required />
+      <textarea name="reason" placeholder="Why you need food (optional)" rows="4"></textarea>
+      <button type="submit">Request Food</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('requestForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Your request has been submitted!");
+    });
+  </script>
+
+</body>
+
+</html>
